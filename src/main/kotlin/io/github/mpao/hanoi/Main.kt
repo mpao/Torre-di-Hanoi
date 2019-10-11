@@ -15,20 +15,6 @@ import kotlin.math.pow
 const val size = 4
 var reverseCount = (2.toDouble().pow(size)-1).toInt()
 
-/**
- * Implementazione struttura Stack
- */
-class Stack<T>{
-    private val elements: MutableList<T> = mutableListOf()
-
-    fun push(item: T) = elements.add(item)
-    fun pop(): T? = if (elements.isNotEmpty()) elements.removeAt(size() -1) else null
-    fun peek(): T? = elements.lastOrNull()
-    fun size(): Int = elements.size
-
-    override fun toString(): String = elements.toString()
-}
-
 fun main() {
     val initial = Stack<Int>()
     val middle = Stack<Int>()
@@ -60,6 +46,20 @@ fun resolve(size: Int, initial: Stack<Int>, middle: Stack<Int>, final: Stack<Int
         println(reverseCount--)
         resolve(size-1, middle, initial, final)
     }
+}
+
+/**
+ * Implementazione struttura Stack
+ */
+class Stack<T>{
+    private val elements: MutableList<T> = mutableListOf()
+
+    fun push(item: T) = elements.add(item)
+    fun pop(): T? = if (elements.isNotEmpty()) elements.removeAt(size() -1) else null
+    fun peek(): T? = elements.lastOrNull()
+    fun size(): Int = elements.size
+
+    override fun toString(): String = elements.toString()
 }
 
 /**
